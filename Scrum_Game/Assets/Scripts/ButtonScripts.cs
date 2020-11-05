@@ -7,6 +7,7 @@ public class ButtonScripts : MonoBehaviour
 {
     private Button optionsButton;
     private Button backButton;
+    private Button exitButton;
 
     private Canvas Menu;
     private Canvas Options;
@@ -16,9 +17,11 @@ public class ButtonScripts : MonoBehaviour
     {
         backButton = GameObject.Find("BackButton").GetComponent<Button>();
         optionsButton = GameObject.Find("OptionsButton").GetComponent<Button>();
+        exitButton = GameObject.Find("ExitButton").GetComponent<Button>();
 
         backButton.onClick.AddListener(BackButtonClick);
         optionsButton.onClick.AddListener(OptionsClick);
+        exitButton.onClick.AddListener(QuitGame);
 
         Menu = GameObject.Find("MenuUI").GetComponent<Canvas>();
         Options = GameObject.Find("OptionsUI").GetComponent<Canvas>();
@@ -39,9 +42,10 @@ public class ButtonScripts : MonoBehaviour
         Options.enabled = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void QuitGame()
     {
-        
+        Application.Quit();
+        Debug.Log("Quit!");
     }
+
 }
